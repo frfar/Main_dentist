@@ -1,0 +1,45 @@
+{% extends 'Mainapp/base.html' %}
+{% block title %} | Patients{% endblock %}
+{% load static %}
+{% block content %}
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'img/bg-img/bg_12.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">PATIENTS</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ***** Dento Pricing Table Area Start ***** -->
+  <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+    {% for article in articles %}
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="dento-price-table table-responsive">
+              <table class="table table-borderless mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">{{article.title}}</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{article.description|safe}}</th>
+                    <td><img width="100%" src="{{article.thumbnail.url}}"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+  <!-- ***** Dento Pricing Table Area End ***** -->
+{% endblock content %}

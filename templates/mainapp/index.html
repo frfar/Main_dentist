@@ -1,0 +1,129 @@
+{% extends 'Mainapp/base.html' %}
+{% block title %} | Welcome{% endblock %}
+{% block meta_description %}{% endblock %}
+{% load static %}
+{% block content %}
+{% load base_tags %}
+
+  <!-- ***** Welcome Area Start ***** -->
+  <section class="welcome-area">
+    <div class="welcome-slides owl-carousel">
+      {% carousel_loop %}
+    </div>
+  </section>
+  <!-- ***** Welcome Area End ***** -->
+
+  <!-- dream Pricing Table Area Start -->
+  <section class="dream-pricing-table-area section-padding-100">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          {% important_loop %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- dream Pricing Table Area End -->
+
+  <!-- ****** Notices Area Start ******* -->
+  <section class="book-an-oppointment-area section-padding-100 bg-img bg-gradient-overlay-c welcome-text text-center jarallax clearfix" style="background-image: url({% static 'img/bg-img/bg_20.jpg'%});">>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          {% natices_loop %}
+          <a href="#section_book-an-oppointment" class="btn dento-btn mx-2">Book oppointment</a>
+          <a href="{% url 'mainapp:contact' %}" class="btn dento-btn mx-2 active">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ****** Notices Area End ****** -->
+
+  <div class="container">
+    <div class="dream-border clearfix"></div>
+  </div>
+
+  <!-- Cool Facts Area Start -->
+
+  <!-- dream Service Area End -->
+
+
+  <!-- Book An Oppointment Area Start -->
+  <section class="book-an-oppointment-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" id="section_book-an-oppointment" style="background-image: url({% static 'img/bg-img/bg_12.jpg' %});">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center white">
+            <h2>Book An Apointment</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- Appointment Form -->
+          <div class="appointment-form">
+            <form method="POST" action="{% url 'mainapp:send_email' %}">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="text" name="phone" class="form-control" placeholder="Your Phone" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <select name="subject" class="form-control">
+                      <option value="Choose Your Scheldule">Choose Your Scheldule</option>
+                      <option value="9 AM to 10 AM">9 AM to 10 AM</option>
+                      <option value="11 AM to 12 PM">11 AM to 12 PM</option>
+                      <option value="2 PM to 4 PM">2 PM to 4 PM</option>
+                      <option value="8 PM to 10 PM">8 PM to 10 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group mb-30">
+                    <textarea name="message" class="form-control" placeholder="Your Message"></textarea>
+                  </div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn dream-btn">Booking Now</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Book An Oppointment Area End -->
+
+  <!-- ***** dream Dentist Area Start ***** -->
+  <section class="section-padding-100 bg-img bg-gradient-overlay-b welcome-text text-center jarallax clearfix" style="background-image: url({% static 'img/bg-img/Effective_family_living.jpg'%});">      
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12 ">
+          {% new_uptodate %}
+      </div>
+  </section>
+  <!-- ***** dream Dentist Area End ***** -->
+
+  <!-- ***** Map Area Start ***** -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340.705570391073!2d-96.7349032848086!3d33.143098880862965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c179465523c79%3A0x7791b741d7ba5aba!2sDream%20Family%20Dental!5e0!3m2!1sen!2s!4v1605104842049!5m2!1sen!2s" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+  <!-- ***** Map Area End ***** -->
+{% endblock content %}

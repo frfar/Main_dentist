@@ -1,0 +1,62 @@
+{% extends 'Mainapp/base.html' %}
+{% block title %} | {{article.title}}{% endblock %}
+{% load static %}
+{% block content %}
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({{article.thumbnail.url}});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">{{article.title}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'mainapp:service' %}"><i class="fa fa-arrow-left"></i> Back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{article.title}}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ****** Blog Area Start ******* -->
+  <section class="dento--blog-area mt-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-100">
+          <!-- Blog Details Area -->
+          <div class="blog-details-area">
+            <p class="post-title">{{article.description|safe}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ****** Blog Area End ******* -->
+
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Popper js -->
+  <script src="js/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- All js -->
+  <script src="js/dento.bundle.js"></script>
+  <!-- Active js -->
+  <script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>
+{% endblock %}

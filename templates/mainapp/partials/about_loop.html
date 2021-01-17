@@ -1,0 +1,16 @@
+{% for article in category.articles.all %}
+  <!-- Single Welcome Slide -->
+  <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({{article.thumbnail.url}});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <!-- Welcome Text -->
+          <div class="welcome-text text-center">
+            <h2>{{article.title}}</h2>
+            <p>{{article.description|striptags|truncatewords:130}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

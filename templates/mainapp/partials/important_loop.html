@@ -1,0 +1,8 @@
+{% for article in category.articles.all %}
+    <div class="section-heading text-center">
+        <h2>{{article.title}}</h2>
+        <div class="line"></div>
+        <br>
+        <h2>{{article.description|safe}}</h2>
+    </div>
+{% endfor %}

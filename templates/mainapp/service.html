@@ -1,0 +1,42 @@
+{% extends 'Mainapp/base.html' %}
+{% block title %} | Our Service{% endblock %}
+{% block meta_description %}{% endblock %}
+{% load static %}
+{% block content %}
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'img/bg-img/bg-servise.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Our Service</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+  
+  <!-- ***** dream Dentist Area Start ***** -->
+  <section class="dentist-area section-padding-100-0">
+    <div class="container">
+      <div class="row">
+        <!-- Single Dentist Area -->
+        {% for article in articles %}
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="single-dentist-area mb-100">
+              <a href="{% url 'mainapp:service_detail' article.slug %}"><img style="border-radius: 0 15px 0 0;" src="{{article.thumbnail.url}}" alt=""></a>
+              <!-- Dentist Content -->
+              <div class="dentist-content">
+                <div class="dentist-info bg-gradient-overlay">
+                  <h5>{{article.title}}</h5>
+                  <button type="submit" class="btn dream-btn"><a href="{% url 'mainapp:service_detail' article.slug %}">Read More</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- ***** dream Dentist Area End ***** -->
+
+{% endblock content %}

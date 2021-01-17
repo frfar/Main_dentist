@@ -1,0 +1,206 @@
+{% load static %}
+{% load base_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="{% block meta_description %}DREAM FAMILY DENTAL | Dr. Mandana B. Milani{% endblock %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- Title -->
+  <title>DREAM FAMILY DENTAL {% block title %}{% endblock %}</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preload-content">
+      <div id="dento-load"></div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area">
+    <!-- Top Header Area -->
+    <div class="top-header-area">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <!-- Top Content -->
+          <div class="col-6 col-md-9 col-lg-8">
+            <div class="top-header-content">
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="McKinney, TX 75070 ,8994 Tour Drive, #220"><i class="fa fa-map-marker"></i> <span>McKinney, TX 75070 ,8994 Tour Drive, #220</span></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="(469)301-3215"><i class="icon_phone"></i> <span>(469)301-3215</span></a>
+            </div>
+          </div>
+          <!-- Top Header Social Info -->
+          <div class="col-6 col-md-3 col-lg-4">
+            <div class="top-header-social-info text-right">
+              <a href="https://www.facebook.com/Dream-Family-Dental-245085119770519" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/DREAMDENTTAL" data-toggle="tooltip" target="_blank" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/mandana-milani-7906962a" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+              <!--<a href="#" data-toggle="tooltip" data-placement="bottom" title="Login"><i class="fa fa-sign-in"></i> <span>Login</span></a> -->
+              {% if user.is_authenticated %}
+                <span class="hello-msg">Hello, {{request.user}}<a href="{% url 'account:logout' %}">Logout</a></span>
+              {% else %}
+                <a href="{% url 'account:login' %}"class="btn btn-warning">Register | Login</a>
+                <!--<a href="{% url 'account:login' %}" data-toggle="tooltip" data-placement="bottom" title="Register & Login"><i class="fa fa-user-plus"></i> <span>Register/login</span></a> -->
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top Header End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container">
+          <!-- Classy Menu -->
+          <nav class="classy-navbar justify-content-between" id="dentoNav">
+
+            <!-- Logo -->
+            <a class="nav-brand" href="{% url 'mainapp:home' %}"><img src="{% static 'img/core-img/dream_family_logo.png' %}" style="width: 70px; height: 70px; position: relative;"><h6>DREAM FAMILY DENTAL</h6></a>
+
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+
+            <!-- Menu -->
+            <div class="classy-menu">
+
+              <!-- Close Button -->
+              <div class="classycloseIcon">
+                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+
+              <!-- Nav Start -->
+              <div class="classynav">
+                <ul id="nav">
+                  <li><a href="{% url 'mainapp:home' %}">Welcome</a></li>
+                  <li><a href="{% url 'mainapp:about' %}">About</a></li>
+                  <li><a href="{% url 'mainapp:service' %}">Services</a></li>
+                  <li><a href="{% url 'mainapp:patients' %}">patients</a></li>
+                  <li><a href="{% url 'mainapp:testimonials' %}">testimonials</a>
+                  <li><a href="{% url 'mainapp:contact' %}">Contact</a></li>
+                </ul>
+              </div>
+              <!-- Nav End -->
+            </div>
+
+            <!-- Booking Now Button -->
+            <a href="#" class="btn dento-btn booking-btn">( 4 6 9 ) 3 0 1 - 3 2 1 5 </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  {% block content %}
+
+  {% endblock content %}
+
+  <!-- ***** Footer Area Start ***** -->
+  <footer class="footer-area bg-img bg-gradient-overlay-c" style="background-image: url({% static 'img/bg-img/bg_3.jpg' %});">
+    <div class="container">
+      <div class="row">
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-footer-widget">
+            <a href="{% url 'mainapp:home' %}" class="d-block mb-4"><img src="{% static 'img/core-img/dream_logo.png' %}" alt=""></a>
+            <p>DREAM FAMILY DENTAL | Dr. Mandana B. Milani</p>
+            <div class="footer-contact">
+              <p><i class="icon_pin"></i> 8994 Tour Drive, #220 McKinney, TX 75070 USA</p>
+              <p><i class="icon_phone"></i> +1 ( 4 6 9 ) 3 0 1 - 3 2 1 5</p>
+              <p><i class="icon_mail"></i> info@dreamfamilydental.com </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Opening Hours</h5>
+
+            <!-- Opening Hours -->
+            <ul class="opening-hours">
+              <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+              <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+              <li><span>Sat</span> <span>9.00-17.00</span></li>
+              <li><span>Sun</span> <span>10.00-17.00</span></li>
+              <li><span>Holiday</span> <span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title"></h5>
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Newsletter</h5>
+
+            <p>We will send out weekly newest article and some great offers</p>
+            <!-- Newsletter Form -->
+            <div class="footer-newsletter-form">
+              <form action="#" method="post">
+                <input type="email" name="nl-email" value="" placeholder="Email Address">
+                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              </form>
+            </div>
+
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="https://www.facebook.com/Dream-Family-Dental-245085119770519" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/DREAMDENTTAL" data-toggle="tooltip" target="_blank" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/mandana-milani-7906962a" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="copywrite-content">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Popper js -->
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap js -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- All js -->
+  <script src="{% static 'js/dento.bundle.js' %}"></script>
+  <!-- Active js -->
+  <script src="{% static 'js/default-assets/active.js' %}"></script>
+
+</body>
+
+</html>
